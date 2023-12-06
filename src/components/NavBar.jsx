@@ -7,49 +7,52 @@ import SideBar from './SideBar';
 const NavBar = () => {
   const [text, setText] = useState('');
   const [width, setWidth] = useState(window.innerWidth);
-  const [showSideBar, setShowSideBar] = useState(null);
+  const [sideBarOpacity, setSideBarOpacity] = useState(0);
 
   window.addEventListener('resize', () => {
     setWidth(window.innerWidth);
   });
 
+  const handleMenuClick = () => {
+    setSideBarOpacity(1);
+  };
+
   const handleInputChange = (e) => {
     setText(e.target.value);
   };
 
+  const handleSubmit = () => {};
+
   return (
-    <div className='border-b-2'>
-      {showSideBar && (
-        <SideBar
-          closeSideBar={(returnedValue) => {
-            setShowSideBar(returnedValue);
-          }}
-        />
-      )}
+    <div className='relative border-b-2'>
+      <SideBar
+        opacity={sideBarOpacity}
+        setOpacity={(value) => {
+          setSideBarOpacity(value);
+        }}
+      />
 
       <nav className='p-2 flex justify-between lg:ml-[120px] lg:mr-[150px]'>
         <div className='flex gap-3 items-center'>
           {width < 780 && (
             <FontAwesomeIcon
               icon={faBars}
-              onClick={() => {
-                setShowSideBar(true);
-              }}
               className='text-[20px] p-2 cursor-pointer hover:bg-blue-100 hover:text-blue-700 rounded-md'
+              onClick={handleMenuClick}
             />
           )}
           <Link to='/'>
             <img src='../site-logo.png' width={50} alt='site-logo' />
           </Link>
           {width > 780 && (
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className='h-[40px] cursor-text border border-[#ccc] pl-2 rounded-md w-[400px] flex items-center justify-between overflow-hidden'>
                 <input
                   onChange={handleInputChange}
                   value={text}
                   type='text'
                   placeholder='Search...'
-                  className='focus:outline-none placeholder:text-[#777]'
+                  className='w-[400px] focus:outline-none placeholder:text-[#777]'
                 />
                 <div className='cursor-pointer h-[50px] w-[40px] flex items-center justify-center hover:bg-blue-100 hover:text-blue-600'>
                   <FontAwesomeIcon

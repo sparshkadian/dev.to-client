@@ -1,16 +1,22 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
-const SideBar = ({ closeSideBar }) => {
+const SideBar = ({ opacity, setOpacity }) => {
+  const handleCloseSideBar = () => {
+    setOpacity(0);
+  };
+
   return (
-    <div className='w-[270px] h-screen border-2 p-3'>
+    <div
+      className={`opacity-${opacity} absolute ${
+        opacity === 1 ? 'z-[10]' : 'z-[-1]'
+      } w-[270px] h-screen border-2 p-3 bg-white`}
+    >
       <div className='flex justify-between  items-center'>
         <h2 className='text-lg font-bold'>DEV Community</h2>
         <FontAwesomeIcon
           icon={faX}
-          onClick={() => {
-            closeSideBar(false);
-          }}
+          onClick={handleCloseSideBar}
           className='cursor-pointer hover:bg-blue-100 hover:text-blue-600 px-3 py-[10px] rounded-md'
         />
       </div>

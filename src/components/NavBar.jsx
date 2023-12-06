@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import SideBar from './SideBar';
 
 const NavBar = () => {
   const [text, setText] = useState('');
   const [width, setWidth] = useState(window.innerWidth);
+  const [showSideBar, setShowSideBar] = useState(null);
 
   window.addEventListener('resize', () => {
     setWidth(window.innerWidth);
@@ -17,11 +19,22 @@ const NavBar = () => {
 
   return (
     <div className='border-b-2'>
+      {showSideBar && (
+        <SideBar
+          closeSideBar={(returnedValue) => {
+            setShowSideBar(returnedValue);
+          }}
+        />
+      )}
+
       <nav className='p-2 flex justify-between lg:ml-[120px] lg:mr-[150px]'>
         <div className='flex gap-3 items-center'>
           {width < 780 && (
             <FontAwesomeIcon
               icon={faBars}
+              onClick={() => {
+                setShowSideBar(true);
+              }}
               className='text-[20px] p-2 cursor-pointer hover:bg-blue-100 hover:text-blue-700 rounded-md'
             />
           )}
@@ -56,12 +69,8 @@ const NavBar = () => {
               className='text-[20px] cursor-pointer'
             />
           )}
-          {width > 780 && (
-            <p className='text-[#777] px-3 py-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'>
-              Log in
-            </p>
-          )}
-          <button className='px-4 py-[7px] font-semibold rounded-md border border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600'>
+          {width > 780 && <p className='log-in-btn px-4 py-2'>Log in</p>}
+          <button className='create-account-btn px-4 py-[7px]'>
             Create account
           </button>
         </div>

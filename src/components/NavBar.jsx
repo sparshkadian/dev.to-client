@@ -4,11 +4,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
+  const [text, setText] = useState('');
   const [width, setWidth] = useState(window.innerWidth);
 
   window.addEventListener('resize', () => {
     setWidth(window.innerWidth);
   });
+
+  const handleInputChange = (e) => {
+    setText(e.target.value);
+  };
 
   return (
     <div className='border-b-2'>
@@ -25,16 +30,20 @@ const NavBar = () => {
           </Link>
           {width > 780 && (
             <form>
-              <div className='border border-[#ccc] p-2 rounded-md w-[400px] flex items-center justify-between hover:border-blue-600'>
+              <div className='h-[40px] cursor-text border border-[#ccc] pl-2 rounded-md w-[400px] flex items-center justify-between overflow-hidden'>
                 <input
+                  onChange={handleInputChange}
+                  value={text}
                   type='text'
                   placeholder='Search...'
                   className='focus:outline-none placeholder:text-[#777]'
                 />
-                <FontAwesomeIcon
-                  icon={faMagnifyingGlass}
-                  className='text-[20px] '
-                />
+                <div className='cursor-pointer h-[50px] w-[40px] flex items-center justify-center hover:bg-blue-100 hover:text-blue-600'>
+                  <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    className='text-[20px] cursor-pointer'
+                  />
+                </div>
               </div>
             </form>
           )}
@@ -47,7 +56,11 @@ const NavBar = () => {
               className='text-[20px] cursor-pointer'
             />
           )}
-          {width > 780 && <p className='text-[#777]'>Log in</p>}
+          {width > 780 && (
+            <p className='text-[#777] px-3 py-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'>
+              Log in
+            </p>
+          )}
           <button className='px-4 py-[7px] font-semibold rounded-md border border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600'>
             Create account
           </button>

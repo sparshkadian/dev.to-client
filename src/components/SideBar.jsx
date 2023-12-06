@@ -1,8 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
-const SideBar = ({ opacity, setOpacity }) => {
+const SideBar = ({ opacity, setOpacity, divRef }) => {
   const handleCloseSideBar = () => {
+    divRef.current.style.opacity = 1;
+    divRef.current.style.backgroundColor = '';
+    divRef.current.style.zIndex = -2;
     setOpacity(0);
   };
 

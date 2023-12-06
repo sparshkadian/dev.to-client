@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import SideBar from './SideBar';
 
 const NavBar = () => {
+  const divRef = useRef(null);
   const [text, setText] = useState('');
   const [width, setWidth] = useState(window.innerWidth);
   const [sideBarOpacity, setSideBarOpacity] = useState(0);
@@ -14,6 +15,9 @@ const NavBar = () => {
   });
 
   const handleMenuClick = () => {
+    divRef.current.style.opacity = 0.8;
+    divRef.current.style.backgroundColor = '#666';
+    divRef.current.style.zIndex = 3;
     setSideBarOpacity(1);
   };
 
@@ -30,7 +34,13 @@ const NavBar = () => {
         setOpacity={(value) => {
           setSideBarOpacity(value);
         }}
+        divRef={divRef}
       />
+
+      <div
+        ref={divRef}
+        className='absolute z-[-2] w-screen h-screen bg-reg-500'
+      ></div>
 
       <nav className='p-2 flex justify-between lg:ml-[120px] lg:mr-[150px]'>
         <div className='flex gap-3 items-center'>

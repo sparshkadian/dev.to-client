@@ -42,7 +42,7 @@ const NavBar = () => {
         className='absolute z-[-2] w-screen h-screen bg-reg-500'
       ></div>
 
-      <nav className='p-2 flex justify-between lg:ml-[120px] lg:mr-[150px]'>
+      <nav className='flex justify-between p-3 md:px-3 xl:px-20'>
         <div className='flex gap-3 items-center'>
           {width < 780 && (
             <FontAwesomeIcon

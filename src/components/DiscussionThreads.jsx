@@ -28,14 +28,14 @@ const DiscussionThreads = () => {
       } bg-white border rounded-md flex flex-col gap-2 sm:w-0 md:w-1/4 lg:w-2/5`}
     >
       <div className='border-b p-3'>
-        <h2 className='font-semibold'>#discuss</h2>
-        <p className='text-sm text-[#777]'>
+        <h2 className='font-bold text-xl'>#discuss</h2>
+        <p className='text-xs text-[#777]'>
           Discussion threads targeting the whole community
         </p>
       </div>
 
       {/* Content Box */}
-      <div className='discussion-box p-3 cursor-pointer'>
+      <div className='discussion-box p-3 cursor-pointer border-b'>
         <h3 className='discussion-heading'>Meme Monday</h3>
         <p className='text-sm text-[#777]'>39 Comments</p>
       </div>

@@ -9,11 +9,14 @@ import advertise from '../assets/imgs/heart.png';
 import horn from '../assets/imgs/horn.png';
 import guide from '../assets/imgs/guide.png';
 import thinking from '../assets/imgs/thinking.png';
+import thumb from '../assets/imgs/thumb.png';
+import emote from '../assets/imgs/emote.png';
+import eyes from '../assets/imgs/eyes.png';
 
 const LeftPanel = () => {
   const { width } = useWidth();
 
-  const links = [
+  const navLinks = [
     {
       icon: house,
       text: 'Home',
@@ -71,6 +74,57 @@ const LeftPanel = () => {
     },
   ];
 
+  const otherLinks = [
+    {
+      icon: thumb,
+      text: 'Code of Conduct',
+      alt: 'code-of-conduct',
+    },
+    {
+      icon: emote,
+      text: 'Privacy Policy',
+      alt: 'privacy-policy',
+    },
+    {
+      icon: eyes,
+      text: 'Terms of use',
+      alt: 'terms-of-use',
+    },
+  ];
+
+  const tags = [
+    'webdev',
+    'javascript',
+    'programming',
+    'beginners',
+    'tutorial',
+    'react',
+    'python',
+    'devops',
+    'opensource',
+    'aws',
+    'discuss',
+    'productivity',
+    'ai',
+    'node',
+    'codenewbie',
+    'typescripts',
+    'career',
+    'css',
+    'news',
+    'html',
+    'cloud',
+    'learning',
+    'security',
+    'database',
+    'api',
+    'github',
+    'java',
+    'testing',
+    'machinelearning',
+    'go',
+  ];
+
   return (
     <div className={`${width < 770 ? 'hidden' : 'block'} sm:w-2/5 lg:w-1/4`}>
       <div className='flex flex-col gap-3 bg-white rounded-md p-3 border'>
@@ -85,13 +139,51 @@ const LeftPanel = () => {
         <p className='log-in-btn text-center py-[7px]'>Log in</p>
       </div>
 
-      <div>
-        {links.map((link) => (
-          <div className='ml-2 mt-5 flex gap-4 items-center'>
+      <div className='mt-5'>
+        {navLinks.map((link) => (
+          <div className='flex gap-4 items-center p-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'>
             <img src={link.icon} width={20} alt={link.alt} />
             <p>{link.text}</p>
           </div>
         ))}
+      </div>
+
+      <p className='mt-10 font-bold'>Other</p>
+      <div className='mt-2'>
+        {otherLinks.map((link) => (
+          <div className='flex gap-4 items-center p-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'>
+            <img src={link.icon} width={20} alt={link.alt} />
+            <p>{link.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className=''></div>
+
+      <p className='mt-10 font-bold'>Popular Tags</p>
+      <div className='h-[350px] overflow-y-scroll mt-4 ml-3 flex flex-col'>
+        {tags.map((tag) => (
+          <p className='p-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'>{`#${tag}`}</p>
+        ))}
+      </div>
+
+      <div className='mt-10 flex flex-col gap-3 text-sm text-[#777]'>
+        <p>
+          <span className='text-blue-700 font-bold'>DEV Community</span> A
+          constructive and inclusive social network for software developers.
+          With you every step of your journey.
+        </p>
+        <p>
+          Built on <span className='text-blue-700 font-bold'>Forem</span> — the{' '}
+          <span className='text-blue-700 font-bold'>open source</span> software
+          that powers <span className='text-blue-700 font-bold'>DEV</span> and
+          other inclusive communities.
+        </p>
+        <p>
+          Made with love and{' '}
+          <span className='text-blue-600 font-bold'>React</span>. DEV Community
+          © 2016 - 2023.
+        </p>
       </div>
     </div>
   );

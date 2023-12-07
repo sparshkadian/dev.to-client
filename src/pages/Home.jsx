@@ -4,8 +4,8 @@ import CentrePanel from '../components/CentrePanel';
 
 const Home = () => {
   return (
-    <div className='mt-3 mb-5 px-1 md:px-3 xl:px-20'>
-      <div className='flex gap-2 justify-between'>
+    <div className='mt-3 mb-5 px-1 md:px-3 xl:px-[120px]'>
+      <div className='flex gap-2 justify-between items-start'>
         <LeftPanel />
         <CentrePanel />
         <DiscussionThread />

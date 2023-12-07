@@ -15,8 +15,8 @@ const NavBar = () => {
   });
 
   const handleMenuClick = () => {
-    divRef.current.style.opacity = 0.8;
-    divRef.current.style.backgroundColor = '#666';
+    divRef.current.style.opacity = 0.5;
+    divRef.current.style.backgroundColor = '#000';
     divRef.current.style.zIndex = 3;
     setSideBarOpacity(1);
   };
@@ -28,7 +28,7 @@ const NavBar = () => {
   const handleSubmit = () => {};
 
   return (
-    <div className='bg-white relative border-b-2'>
+    <div className='bg-white top-0 relative w-screen border-b-2'>
       <SideBar
         opacity={sideBarOpacity}
         setOpacity={(value) => {
@@ -42,7 +42,7 @@ const NavBar = () => {
         className='absolute z-[-2] w-screen h-screen bg-reg-500'
       ></div>
 
-      <nav className='flex justify-between p-3 md:px-3 xl:px-20'>
+      <nav className='flex justify-between px-1 py-3 md:px-3 xl:px-[120px]'>
         <div className='flex gap-3 items-center'>
           {width < 780 && (
             <FontAwesomeIcon

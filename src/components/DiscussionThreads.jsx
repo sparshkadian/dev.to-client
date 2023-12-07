@@ -1,25 +1,30 @@
-import { useEffect } from 'react';
 import { useWidth } from '../hooks/useWidth';
 
 const DiscussionThreads = () => {
   const { width } = useWidth();
 
-  useEffect(() => {
-    document
-      .querySelector('.discussion-box')
-      .addEventListener('mouseenter', () => {
-        document.querySelector('.discussion-heading').style.color =
-          'rgb(37 99 235)';
-      });
-
-    return () => {
-      document
-        .querySelector('.discussion-box')
-        .addEventListener('mouseleave', () => {
-          document.querySelector('.discussion-heading').style.color = '#000';
-        });
-    };
-  }, []);
+  const threads = [
+    {
+      heading: 'Meme Monday',
+      comments: 39,
+    },
+    {
+      heading: 'How Do You Organize Your Digital World',
+      comments: 5,
+    },
+    {
+      heading: 'How to fall in love with coding',
+      comments: 22,
+    },
+    {
+      heading: 'is PHP still a viable choice in 2023',
+      comments: 1,
+    },
+    {
+      heading: "Sloan's inbox: How did open source come to be?",
+      comments: 7,
+    },
+  ];
 
   return (
     <div
@@ -35,10 +40,14 @@ const DiscussionThreads = () => {
       </div>
 
       {/* Content Box */}
-      <div className='discussion-box p-3 cursor-pointer border-b'>
-        <h3 className='discussion-heading'>Meme Monday</h3>
-        <p className='text-sm text-[#777]'>39 Comments</p>
-      </div>
+      {threads.map((thread) => (
+        <div className='discussion-box cursor-pointer flex flex-col border-b'>
+          <div className='px-3 flex flex-col gap-3 mb-5'>
+            <h3 className='discussion-heading'>{thread.heading}</h3>
+            <p className='text-sm text-[#777]'>{`${thread.comments} comments`}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

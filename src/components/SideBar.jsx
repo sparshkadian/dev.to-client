@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
+import { navLinks } from '../placeholderText';
+import { otherLinks } from '../placeholderText';
 
 const SideBar = ({ opacity, setOpacity, divRef }) => {
   const handleCloseSideBar = () => {
@@ -11,9 +13,9 @@ const SideBar = ({ opacity, setOpacity, divRef }) => {
 
   return (
     <div
-      className={` sideBar opacity-${opacity} absolute ${
+      className={`h-screen overflow-y-scroll sideBar opacity-${opacity} absolute ${
         opacity === 1 ? 'z-[10]' : 'z-[-1]'
-      } w-[270px] h-screen border-2 p-3 bg-white`}
+      } w-[300px] h-screen border-2 p-3 bg-white`}
     >
       <div className='flex justify-between  items-center'>
         <h2 className='text-lg font-bold'>DEV Community</h2>
@@ -34,6 +36,25 @@ const SideBar = ({ opacity, setOpacity, divRef }) => {
         </p>
         <button className='create-account-btn py-[7px]'>Create Account</button>
         <p className='log-in-btn text-center py-[7px]'>Log in</p>
+      </div>
+
+      <div className='mt-5'>
+        {navLinks.map((link) => (
+          <div className='flex gap-4 items-center p-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'>
+            <img src={link.icon} width={20} alt={link.alt} />
+            <p>{link.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <p className='mt-10 font-bold'>Other</p>
+      <div className='mt-2'>
+        {otherLinks.map((link) => (
+          <div className='flex gap-4 items-center p-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'>
+            <img src={link.icon} width={20} alt={link.alt} />
+            <p>{link.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

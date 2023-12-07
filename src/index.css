@@ -6,6 +6,7 @@
 
 body {
   background-color: rgba(222, 222, 222, 0.3);
+  overflow-x: hidden;
 }
 
 .create-account-btn {
@@ -28,5 +29,22 @@ body {
 
 .log-in-btn:hover {
   background-color: rgb(219 234 254);
+  color: rgb(37 99 235);
+}
+
+/* VENTRE PANEL */
+.centre-panel-tags {
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 5px 10px;
+}
+
+.centre-panel-tags:hover {
+  color: rgb(37 99 235);
+  background: #fff;
+}
+
+/* DISCUSSION THREADS */
+.discussion-box:hover h3 {
   color: rgb(37 99 235);
 }

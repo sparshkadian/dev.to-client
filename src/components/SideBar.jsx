@@ -11,7 +11,7 @@ const SideBar = ({ opacity, setOpacity, divRef }) => {
 
   return (
     <div
-      className={`opacity-${opacity} absolute ${
+      className={` sideBar opacity-${opacity} absolute ${
         opacity === 1 ? 'z-[10]' : 'z-[-1]'
       } w-[270px] h-screen border-2 p-3 bg-white`}
     >

@@ -28,7 +28,7 @@ const NavBar = () => {
   const handleSubmit = () => {};
 
   return (
-    <div className='relative border-b-2'>
+    <div className='bg-white relative border-b-2'>
       <SideBar
         opacity={sideBarOpacity}
         setOpacity={(value) => {

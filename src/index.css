@@ -48,3 +48,20 @@ body {
 .discussion-box:hover h3 {
   color: rgb(37 99 235);
 }
+
+/* SIGNUP PAGE */
+.Oauth-btn {
+  cursor: pointer;
+  /* width: 450px; */
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: smaller;
+}
+
+.Oauth-btn:hover {
+  background-color: rgba(204, 204, 204, 0.2);
+}

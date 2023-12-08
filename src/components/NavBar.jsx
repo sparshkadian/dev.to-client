@@ -29,13 +29,13 @@ const NavBar = () => {
 
   return (
     <div className='bg-white top-0 relative w-screen border-b-2'>
-      <SideBar
+      {/* <SideBar
         opacity={sideBarOpacity}
         setOpacity={(value) => {
           setSideBarOpacity(value);
         }}
         divRef={divRef}
-      />
+      /> */}
 
       <div
         ref={divRef}
@@ -82,10 +82,16 @@ const NavBar = () => {
               className='text-[20px] cursor-pointer'
             />
           )}
-          {width > 780 && <p className='log-in-btn px-4 py-2'>Log in</p>}
-          <button className='create-account-btn px-4 py-[7px]'>
-            Create account
-          </button>
+          {width > 780 && (
+            <Link to='/login'>
+              <p className='log-in-btn px-4 py-2'>Log in</p>
+            </Link>
+          )}
+          <Link to='/signup'>
+            <button className='create-account-btn px-4 py-[7px]'>
+              Create account
+            </button>
+          </Link>
         </div>
       </nav>
     </div>

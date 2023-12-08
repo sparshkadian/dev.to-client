@@ -40,8 +40,11 @@ const DiscussionThreads = () => {
       </div>
 
       {/* Content Box */}
-      {threads.map((thread) => (
-        <div className='discussion-box cursor-pointer flex flex-col border-b'>
+      {threads.map((thread, i) => (
+        <div
+          key={i}
+          className='discussion-box cursor-pointer flex flex-col border-b'
+        >
           <div className='px-3 flex flex-col gap-3 mb-5'>
             <h3 className='discussion-heading'>{thread.heading}</h3>
             <p className='text-sm text-[#777]'>{`${thread.comments} comments`}</p>

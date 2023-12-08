@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { navLinks } from '../placeholderText';
 import { otherLinks } from '../placeholderText';
+import { Link } from 'react-router-dom';
 
 const SideBar = ({ opacity, setOpacity, divRef }) => {
   const handleCloseSideBar = () => {
@@ -34,8 +35,14 @@ const SideBar = ({ opacity, setOpacity, divRef }) => {
           We're a place where coders share, stay up-to-date and grow their
           careers.
         </p>
-        <button className='create-account-btn py-[7px]'>Create Account</button>
-        <p className='log-in-btn text-center py-[7px]'>Log in</p>
+        <Link to='/signup'>
+          <button className='create-account-btn py-[7px]'>
+            Create Account
+          </button>
+        </Link>
+        <Link to='/login'>
+          <p className='log-in-btn text-center py-[7px]'>Log in</p>
+        </Link>
       </div>
 
       <div className='mt-5'>

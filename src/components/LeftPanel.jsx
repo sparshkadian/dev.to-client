@@ -2,6 +2,7 @@ import { useWidth } from '../hooks/useWidth';
 import { navLinks } from '../placeholderText';
 import { otherLinks } from '../placeholderText';
 import { tags } from '../placeholderText';
+import { Link } from 'react-router-dom';
 
 const LeftPanel = () => {
   const { width } = useWidth();
@@ -16,13 +17,21 @@ const LeftPanel = () => {
           We're a place where coders share, stay up-to-date and grow their
           careers.
         </p>
-        <button className='create-account-btn py-[7px]'>Create Account</button>
-        <p className='log-in-btn text-center py-[7px]'>Log in</p>
+        <Link to='/signup' className='create-account-btn py-[7px] text-center'>
+          Create Account
+        </Link>
+
+        <Link to='/login' className='log-in-btn text-center py-[7px]'>
+          Log in
+        </Link>
       </div>
 
       <div className='mt-5'>
-        {navLinks.map((link) => (
-          <div className='flex gap-4 items-center p-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'>
+        {navLinks.map((link, i) => (
+          <div
+            key={i}
+            className='flex gap-4 items-center p-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'
+          >
             <img src={link.icon} width={20} alt={link.alt} />
             <p>{link.text}</p>
           </div>
@@ -31,8 +40,11 @@ const LeftPanel = () => {
 
       <p className='mt-10 font-bold'>Other</p>
       <div className='mt-2'>
-        {otherLinks.map((link) => (
-          <div className='flex gap-4 items-center p-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'>
+        {otherLinks.map((link, i) => (
+          <div
+            key={i}
+            className='flex gap-4 items-center p-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'
+          >
             <img src={link.icon} width={20} alt={link.alt} />
             <p>{link.text}</p>
           </div>
@@ -43,8 +55,11 @@ const LeftPanel = () => {
 
       <p className='mt-10 font-bold'>Popular Tags</p>
       <div className='h-[350px] overflow-y-scroll mt-4 ml-3 flex flex-col'>
-        {tags.map((tag) => (
-          <p className='p-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'>{`#${tag}`}</p>
+        {tags.map((tag, i) => (
+          <p
+            key={i}
+            className='p-2 cursor-pointer hover:bg-blue-100 rounded-md hover:text-blue-600'
+          >{`#${tag}`}</p>
         ))}
       </div>
 

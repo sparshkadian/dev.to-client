@@ -3,10 +3,11 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
+import MailSignUp from './Auth/MailSignUp';
 
 const App = () => {
   const location = useLocation();
-  const navBarNotAllowed = ['signup', 'login'];
+  const navBarNotAllowed = ['/signup', '/login'];
 
   const checkLocation = () => {
     if (navBarNotAllowed.includes(location.pathname)) {
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/signup/email' element={<MailSignUp />} />
       </Routes>
     </>
   );

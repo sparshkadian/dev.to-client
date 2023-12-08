@@ -3,6 +3,18 @@ import { Link } from 'react-router-dom';
 import { OAuth } from '../placeholderText';
 
 const Login = () => {
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const { email, password } = formData;
+
+  const handleInputChange = (e) => {
+    setFormData((prevValue) => ({
+      ...prevValue,
+      [e.target.id]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {};
+
   return (
     <div className='bg-white w-screen pb-5'>
       <div className='pt-10 max-w-3xl m-auto flex flex-col items-center gap-4'>
@@ -23,9 +35,12 @@ const Login = () => {
           ))}
         </div>
 
-        <div className='auth-form-divider mt-5 border w-11/12 sm:w-[70%]'></div>
+        <div className='auth-form-divider mt-3 border w-11/12 sm:w-[70%]'></div>
 
-        <form className='flex flex-col gap-3 mt-4 w-11/12 sm:w-[70%]'>
+        <form
+          onSubmit={handleSubmit}
+          className='flex flex-col gap-3 mt-2 w-11/12 sm:w-[70%]'
+        >
           <div className='flex flex-col gap-2'>
             <label htmlFor='email' className='font-semibold'>
               Email
@@ -34,7 +49,9 @@ const Login = () => {
               type='text'
               name='email'
               id='email'
-              className='border p-2 rounded-md'
+              value={email}
+              onChange={handleInputChange}
+              className='hover:shadow border p-1 rounded-md focus:outline-none focus:border-blue-600'
             />
           </div>
 
@@ -46,7 +63,9 @@ const Login = () => {
               type='password'
               name='password'
               id='password'
-              className='border p-2 rounded-md'
+              value={password}
+              onChange={handleInputChange}
+              className='hover:shadow border p-1 rounded-md focus:outline-none focus:border-blue-600 '
             />
           </div>
 
@@ -62,7 +81,10 @@ const Login = () => {
             </div>
             <p className='text-blue-600'>Forgot Password?</p>
           </div>
-          <button className='mt-4 text-white bg-blue-700 w-full p-3 rounded-md hover:bg-blue-800'>
+          <button
+            type='submit'
+            className='mt-2 text-white bg-blue-700 w-full p-3 rounded-md hover:bg-blue-800'
+          >
             Log in
           </button>
         </form>

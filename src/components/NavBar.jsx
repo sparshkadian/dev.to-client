@@ -2,17 +2,14 @@ import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { useWidth } from '../hooks/useWidth';
 import SideBar from './SideBar';
 
 const NavBar = () => {
+  const { width } = useWidth();
   const divRef = useRef(null);
   const [text, setText] = useState('');
-  const [width, setWidth] = useState(window.innerWidth);
   const [sideBarOpacity, setSideBarOpacity] = useState(0);
-
-  window.addEventListener('resize', () => {
-    setWidth(window.innerWidth);
-  });
 
   const handleMenuClick = () => {
     divRef.current.style.opacity = 0.5;

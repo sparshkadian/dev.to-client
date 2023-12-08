@@ -1,7 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { OAuth } from '../placeholderText';
 
 const SignUp = () => {
+  const navigate = useNavigate('');
+
+  const handleNavigate = (id) => {
+    navigate(`/signup/${id}`);
+  };
+
   return (
     <div className='bg-white w-screen h-screen'>
       <div className='pt-10 max-w-3xl m-auto flex flex-col items-center gap-4'>
@@ -13,8 +19,14 @@ const SignUp = () => {
 
         {/* OAuth */}
         <div className='w-11/12 sm:w-[70%] flex flex-col gap-5'>
-          {OAuth.map((OAuth, i) => (
-            <div key={i} className='Oauth-btn'>
+          {OAuth.map((OAuth) => (
+            <div
+              key={OAuth._id}
+              onClick={() => {
+                handleNavigate(OAuth._id);
+              }}
+              className='Oauth-btn'
+            >
               <img src={OAuth.logo} width={25} alt={OAuth.alt} />
               <p>{OAuth.text}</p>
               <p></p>

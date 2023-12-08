@@ -11,6 +11,10 @@ import thinking from './assets/imgs/thinking.png';
 import thumb from './assets/imgs/thumb.png';
 import emote from './assets/imgs/emote.png';
 import eyes from './assets/imgs/eyes.png';
+import apple from './assets/Oauth/apple-logo.png';
+import github from './assets/OAuth/github.png';
+import twitter from './assets/OAuth/twitter.png';
+import mail from './assets/OAuth/mail.png';
 
 export const navLinks = [
   {
@@ -119,4 +123,27 @@ export const tags = [
   'testing',
   'machinelearning',
   'go',
+];
+
+export const OAuth = [
+  {
+    logo: apple,
+    text: 'Sign up with Apple',
+    alt: 'apple-logo',
+  },
+  {
+    logo: github,
+    text: 'Sign up with Github',
+    alt: 'github-logo',
+  },
+  {
+    logo: twitter,
+    text: 'Sign up with Twitter',
+    alt: 'twitter-logo',
+  },
+  {
+    logo: mail,
+    text: 'Sign up with Mail',
+    alt: 'gmail-logo',
+  },
 ];

@@ -7,10 +7,10 @@ import MailSignUp from './Auth/MailSignUp';
 
 const App = () => {
   const location = useLocation();
-  const navBarNotAllowed = ['/signup', '/login'];
+  const navBarAllowed = ['/'];
 
   const checkLocation = () => {
-    if (navBarNotAllowed.includes(location.pathname)) {
+    if (!navBarAllowed.includes(location.pathname)) {
       return false;
     } else return true;
   };
